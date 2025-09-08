@@ -63,9 +63,6 @@ return Respondr::success(['foo' => 'bar'], 'All good', 200);
 
 ### Error Response
 
-You can pass an array of error messages, or any kind of Exception/Throwable objects.  
-All exceptions will automatically be converted to their message string.
-
 ```php
 // Pass error strings
 return Respondr::error(['invalid_field'], 'Something went wrong', 422);

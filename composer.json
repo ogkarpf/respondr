@@ -2,9 +2,9 @@
     "name": "ogkarpf/respondr",
     "description": ":package_description",
     "keywords": [
-        ":vendor_name",
-        "laravel",
-        ":package_slug"
+        "ogkarpf",
+        "respondr",
+        "laravel"
     ],
     "homepage": "https://github.com/ogkarpf/respondr",
     "license": "MIT",

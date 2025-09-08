@@ -4,7 +4,6 @@ namespace ogkarpf\respondr;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use ogkarpf\respondr\Commands\RespondrCommand;
 use ogkarpf\respondr\Middleware\AppendApiVersion;
 
 class RespondrServiceProvider extends PackageServiceProvider
@@ -13,20 +12,17 @@ class RespondrServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('respondr')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_migration_table_name_table')
-            ->hasCommand(RespondrCommand::class);
+            ->hasConfigFile('respondr');
     }
 
     public function boot()
     {
         $router = $this->app['router'];
-
-        // Alias für optionale Nutzung
         $router->aliasMiddleware('api.version', AppendApiVersion::class);
-
-        // Global für alle API-Routen hinzufügen
         $router->pushMiddlewareToGroup('api', AppendApiVersion::class);
+
+        $this->publishes([
+            __DIR__.'/../config/respondr.php' => config_path('respondr.php'),
+        ], 'respondr-config');
     }
 }

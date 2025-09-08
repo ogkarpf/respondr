@@ -27,6 +27,19 @@ return [
     | Standard-Status, der für erfolgreiche Responses verwendet wird.
     |
     */
-
     'default_status' => 'success',
+
+    /*
+    |--------------------------------------------------------------------------
+    | API Version Middleware
+    |--------------------------------------------------------------------------
+    |
+    | Aktiviert die Middleware, die die Versionsnummer an jede Response anhängt.
+    |
+    */
+    'version_middleware' => [
+        'enabled' => true,
+        'version' => '1.0.0',
+        'key' => 'api_version',
+    ],
 ];

@@ -2,6 +2,8 @@
 
 namespace ogkarpf\respondr;
 
+use Throwable;
+
 class Respondr {
 
     /**
@@ -35,6 +37,12 @@ class Respondr {
      */
     public static function error($errors = [], $message = null, int $status = 400)
     {
+        foreach ($errors as $key => $error) {
+            if ($error instanceof Throwable) {
+                $errors[$key] = $error->getMessage();
+            }
+        }
+
         return response()->json(
             [
             config('respondr.format.status_key', 'status') => 'error',

@@ -2,6 +2,7 @@
 
 namespace ogkarpf\respondr;
 
+use Illuminate\Http\JsonResponse;
 use Throwable;
 
 class Respondr {
@@ -12,9 +13,9 @@ class Respondr {
      * @param mixed $data
      * @param string|null $message
      * @param int $status
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public static function success($data = null, $message = null, int $status = 200)
+    public static function success($data = null, $message = null, int $status = 200): JsonResponse
     {
         return response()->json(
             [
@@ -29,13 +30,14 @@ class Respondr {
 
     /**
      * Return Error Response
+     * The Errors can be an array of strings, an array of Throwables or both.
      *
-     * @param array|string $errors
+     * @param array $errors
      * @param string|null $message
      * @param int $status
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public static function error($errors = [], $message = null, int $status = 400)
+    public static function error($errors = [], $message = null, int $status = 400): JsonResponse
     {
         foreach ($errors as $key => $error) {
             if ($error instanceof Throwable) {

@@ -1,14 +1,12 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | API Response Keys
     |--------------------------------------------------------------------------
     |
-    | Hier kannst du die Standard-Keys für alle API Responses anpassen.
-    | Zum Beispiel: status, data, message, errors.
+    | Define the keys used in the standardized API responses.
     |
     */
 
@@ -24,7 +22,7 @@ return [
     | Default Status
     |--------------------------------------------------------------------------
     |
-    | Standard-Status, der für erfolgreiche Responses verwendet wird.
+    | The default status value used for successful responses.
     |
     */
     'default_status' => 'success',
@@ -34,7 +32,7 @@ return [
     | API Version Middleware
     |--------------------------------------------------------------------------
     |
-    | Aktiviert die Middleware, die die Versionsnummer an jede Response anhängt.
+    | Enables the middleware that appends the API version to each response.
     |
     */
     'version_middleware' => [

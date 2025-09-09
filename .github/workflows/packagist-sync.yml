@@ -9,6 +9,9 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
       - uses: hotaruma/packagist-sync@v1.0.1
         with:
           api-token: ${{ secrets.PACKAGIST_TOKEN }}
